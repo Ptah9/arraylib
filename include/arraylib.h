@@ -25,5 +25,6 @@ ARRAYLIB_API int arr_count_negative(const int* arr,
                                     std::size_t n);
 ARRAYLIB_API int arr_count_zero(const int* arr, std::size_t n);
 ARRAYLIB_API int arr_product(const int* arr, std::size_t n);
+ARRAYLIB_API double arr_median(const int* arr, std::size_t n);
 
 #endif

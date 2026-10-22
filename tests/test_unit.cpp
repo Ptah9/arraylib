@@ -24,6 +24,22 @@ int main() {
 
     assert(close(arr_average(a, n), 7.0 / 6.0));
 
+    // Медиана чётного размера
+    int b[] = {7, 1, 9, 3};
+    assert(close(arr_median(b, 4), 5.0));
+
+    // Медиана нечётного размера
+    int c[] = {5, 1, 3};
+    assert(close(arr_median(c, 3), 3.0));
+
+    // Медиана не должна менять исходный массив
+    int src[] = {7, 1, 9, 3};
+    int src_copy[] = {7, 1, 9, 3};
+    arr_median(src, 4);
+    for (std::size_t i = 0; i < 4; ++i) {
+        assert(src[i] == src_copy[i]);
+    }
+
     // Произведение на маленьких значениях (без переполнения)
     int d[] = {1, 2, 3, 4};
     assert(arr_product(d, 4) == 24);
@@ -33,6 +49,7 @@ int main() {
     assert(arr_sum(one, 1) == 42);
     assert(arr_max(one, 1) == 42);
     assert(arr_min(one, 1) == 42);
+    assert(close(arr_median(one, 1), 42.0));
 
     std::cout << "[unit] All tests passed\n";
     return 0;

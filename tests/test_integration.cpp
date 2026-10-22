@@ -28,7 +28,16 @@ int main() {
                        + arr_count_zero(data, n);
     assert(counters == static_cast<int>(n));
 
-    // Случай 4: произведение и сумма на массиве из единиц
+    // Случай 4: медиана отсортированного массива
+    int sorted[] = {1, 2, 3, 4, 5, 6, 7};
+    assert(close(arr_median(sorted, 7), 4.0));
+
+    // Случай 5: медиана и среднее не зависят от порядка элементов
+    int permuted[] = {4, 6, 2, 8, 1, 9, 3, 5, 7};
+    assert(close(arr_median(permuted, n), arr_median(data, n)));
+    assert(close(arr_average(permuted, n), avg));
+
+    // Случай 6: произведение и сумма на массиве из единиц
     int ones[] = {1, 1, 1, 1, 1};
     assert(arr_product(ones, 5) == 1);
     assert(arr_sum(ones, 5) == 5);

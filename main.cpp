@@ -20,6 +20,7 @@ int main() {
     std::cout << "Negative: " << arr_count_negative(data, n) << '\n';
     std::cout << "Zero: " << arr_count_zero(data, n) << '\n';
     std::cout << "Product: " << arr_product(data, n) << '\n';
+    std::cout << "Median: " << arr_median(data, n) << '\n';
 
     return 0;
 }

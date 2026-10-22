@@ -55,3 +55,8 @@ if (BUILD_TESTING)
     target_compile_options(test_integration PRIVATE -UNDEBUG)
     add_test(NAME integration COMMAND test_integration)
 endif()
+
+# ---- Пример по варианту ----
+add_executable(variant_17 examples/variant_17.cpp)
+target_link_libraries(variant_17 PRIVATE arraylib)
+set_target_properties(variant_17 PROPERTIES BUILD_RPATH "$ORIGIN")

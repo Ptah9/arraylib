@@ -1,5 +1,8 @@
 #include "arraylib.h"
 
+#include <algorithm>
+#include <vector>
+
 int arr_sum(const int* arr, std::size_t n) {
     int s = 0;
     for (std::size_t i = 0; i < n; ++i) {
@@ -70,4 +73,17 @@ int arr_product(const int* arr, std::size_t n) {
         p *= arr[i];
     }
     return p;
+}
+
+double arr_median(const int* arr, std::size_t n) {
+    // Исходный массив не меняется: работаем с копией.
+    std::vector<int> copy(arr, arr + n);
+    std::sort(copy.begin(), copy.end());
+
+    const std::size_t mid = n / 2;
+    if (n % 2 != 0) {
+        return static_cast<double>(copy[mid]);
+    }
+    return (static_cast<double>(copy[mid - 1])
+            + static_cast<double>(copy[mid])) / 2.0;
 }
